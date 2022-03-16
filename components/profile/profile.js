@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigation } from '@react-navigation/native'
 import {
   Box,
   Spacer,
@@ -10,14 +11,29 @@ import {
   FlatList,
   Avatar,
   Divider,
+  Button
 } from "native-base";
 import { View, ScrollView, StyleSheet, Image } from 'react-native';
-import { Card, Button, Icon } from 'react-native-elements';
+import { Card, Icon } from 'react-native-elements';
 import { auth, db } from "../../firebase"
 
 export default function Application() {
   const [currentUser, setCurrentUser] = useState("")
   const [userDetails, setUserDetails] = useState({});
+  const navigation = useNavigation()
+  async function handleSignOut() {
+    try {
+      await auth
+      .signOut().then(() => {
+        localStorage.removeItem("uid");
+        navigation.navigate("login")
+    
+      });
+    } catch {
+      console.log("faile to logout");
+    }
+  }
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -145,6 +161,17 @@ export default function Application() {
             </Text>
           </View>
         </Card>
+        <View
+        style={{
+          marginBottom: 15,
+          marginTop: 20,
+          alignItems:"center"
+        }}
+      >
+        <Button onPress={handleSignOut}  color="rgb(7, 7, 143)" w="20%">
+          Logout
+        </Button>
+      </View>
       </ScrollView>
     </>
   );

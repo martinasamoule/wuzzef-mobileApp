@@ -23,7 +23,10 @@ const Login = () => {
       setError("");
       await auth.signInWithEmailAndPassword(email, password).then((auth) => {
         localStorage.setItem("uid", auth.user.uid);
+        setEmail(" ");
+        setPassword(" ");
         navigation.navigate("MainLayout");
+        
       });
     } catch (error) {
       switch (error.code) {
