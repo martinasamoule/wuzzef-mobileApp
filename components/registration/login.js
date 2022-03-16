@@ -40,13 +40,12 @@ const Login = () => {
   }
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <View style={styles.header}>
-        <Text>WUZZUF</Text>
-      </View>
-      <View style={styles.welcome}>
-        <Text>Welcome Back</Text>
-      </View>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+    >
+      <View style={styles.header}><Text>WUZZUF</Text></View>
+      <View style={styles.welcome}><Text>Welcome Back</Text></View>
       <View
         style={{
           borderBottomColor: "rgb(209, 201, 201)",
@@ -109,22 +108,16 @@ const Login = () => {
       >
         <Button onPress={handleLogin} title="Sign in" color="rgb(7, 7, 143)" />
       </View>
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 15,
-          fontFamily: "Open Sans,sans-serif",
-          marginBottom: 10,
-          fontWeight: "bold",
-          color: "black",
-        }}
-      >
-        <Text>New To WUZZUF?</Text>
-        <Text
-          style={{ color: "blue" }}
-          onPress={() => navigation.replace("sign-up")}
-        >
+      <View style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 15,
+        fontFamily: 'Open Sans,sans-serif',
+        marginBottom: 10,
+        fontWeight: "bold",
+        color: "black",
+      }}><Text>New To WUZZUF? </Text><Text style={{ color: 'blue' }}
+        onPress={() => navigation.replace("sign-up")}>
           Join now
         </Text>
       </View>
@@ -137,8 +130,7 @@ export default Login;
 const styles = StyleSheet.create({
   header: {
     fontSize: 40,
-    fontFamily: "Open Sans,sans-serif",
-    fontWeight: "bolder",
+    fontFamily: 'Open Sans,sans-serif',
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
   },

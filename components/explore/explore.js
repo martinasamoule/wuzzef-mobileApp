@@ -47,7 +47,7 @@ export default function Explore(props) {
           {
             return item ;
           }
-             if(item.data.jobTitle.toLowerCase().includes(searchTerm.toLowerCase()))
+          if(item.data.jobTitle.toLowerCase().includes(searchTerm.toLowerCase()))
           {
             return item ;
           }
