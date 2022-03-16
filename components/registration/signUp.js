@@ -14,12 +14,12 @@ const SignUp = () => {
 
 
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   async function handleSumbite(e) {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      setError("")
+      setError("");
       await auth
         .createUserWithEmailAndPassword(email, password)
         .then((auth) => {
@@ -70,9 +70,9 @@ const SignUp = () => {
       <View style={styles.welcome}><Text>Sign Up and Start Appling For Jobs</Text></View>
       <View
         style={{
-          borderBottomColor: 'rgb(209, 201, 201)',
+          borderBottomColor: "rgb(209, 201, 201)",
           borderBottomWidth: 1,
-          marginBottom: 30
+          marginBottom: 30,
         }}
       />
       <View style={styles.inputContainer}>
@@ -81,41 +81,39 @@ const SignUp = () => {
         <TextInput
           placeholder="First Name"
           value={firstName}
-          onChangeText={text => setFirstName(text)}
+          onChangeText={(text) => setFirstName(text)}
           style={styles.input}
         />
         <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Last Name</Text>
         <TextInput
           placeholder="Last Name"
           value={lastName}
-          onChangeText={text => setLastName(text)}
+          onChangeText={(text) => setLastName(text)}
           style={styles.input}
         />
         <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Email</Text>
         <TextInput
           placeholder="Email"
           value={email}
-          onChangeText={text => setEmail(text)}
+          onChangeText={(text) => setEmail(text)}
           style={styles.input}
         />
         <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Password</Text>
         <TextInput
           placeholder="Password"
           value={password}
-          onChangeText={text => setPassword(text)}
+          onChangeText={(text) => setPassword(text)}
           style={styles.input}
           secureTextEntry
         />
       </View>
 
-      <View style={{
-        marginBottom: 15
-      }}>
-        <Button
-          onPress={handleSumbite}
-          title="Sign up"
-          color="blue"
-        />
+      <View
+        style={{
+          marginBottom: 15,
+        }}
+      >
+        <Button onPress={handleSumbite} title="Sign up" color="blue" />
       </View>
       <View style={{
         alignItems: 'center',
@@ -130,48 +128,39 @@ const SignUp = () => {
           <Text> Sign in</Text>
         </Text></View>
     </KeyboardAvoidingView>
+  );
+};
 
-
-
-  )
-}
-
-export default SignUp
+export default SignUp;
 
 const styles = StyleSheet.create({
   header: {
-
     fontSize: 40,
     fontFamily: 'Open Sans,sans-serif',
     // fontWeight: "bolder",
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
-
-
   },
   welcome: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     fontSize: 20,
-    fontFamily: 'Open Sans,sans-serif',
+    fontFamily: "Open Sans,sans-serif",
     marginBottom: 10,
     color: "black",
-
-
   },
   container: {
-    margin: 20
+    margin: 20,
   },
   input: {
-    backgroundColor: 'rgb(231, 227, 227)',
+    backgroundColor: "rgb(231, 227, 227)",
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 5,
-    borderColor: 'rgb(199, 195, 195)',
-
+    borderColor: "rgb(199, 195, 195)",
   },
   inputContainer: {
-    marginBottom: 15
+    marginBottom: 15,
   },
   label: {
     fontFamily: 'Open Sans,sans-serif',
