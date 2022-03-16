@@ -2,7 +2,7 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View,Button } from 'react-native'
-import { auth } from '../firebase'
+import { auth } from '../../firebase'
 
 
 const Login = () => {
@@ -23,7 +23,7 @@ const Login = () => {
         .signInWithEmailAndPassword(email, password).then(
           (auth) => {
             localStorage.setItem("uid", auth.user.uid);
-            navigation.navigate("Home")
+            navigation.navigate('MainLayout')
           }
         );
 

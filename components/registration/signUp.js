@@ -2,10 +2,10 @@
 import { useNavigation } from '@react-navigation/native'
 import React, {  useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View,Button } from 'react-native'
-import { auth } from '../firebase'
-import { db } from "../firebase";
+import { auth } from '../../firebase'
+import { db } from "../../firebase";
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -140,7 +140,7 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp
 
 const styles = StyleSheet.create({
   header: {

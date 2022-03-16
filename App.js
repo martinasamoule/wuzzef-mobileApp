@@ -1,31 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './components/login';
-import HomeScreen from './components/HomeScreen';
-import SignUp from './components/signUp';
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import { NativeBaseProvider } from "native-base";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "./components/registration/login";
+import MainLayout from "./components/mainLayout/mainLayout";
+import SignUp from "./components/registration/signUp";
 
 const Stack = createNativeStackNavigator();
-
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen options={{ headerShown: false }} name="login" component={Login} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="sign-up" options={{ headerShown: false }} component={SignUp} />
-      </Stack.Navigator>
-    </NavigationContainer>
+
+      <NativeBaseProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="login" options={{ headerShown: false }} component={Login} />
+          <Stack.Screen name="sign-up" options={{ headerShown: false }} component={SignUp} />
+          <Stack.Screen name="MainLayout" component={MainLayout} options={{ headerShown: false }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+      </NativeBaseProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
