@@ -47,8 +47,8 @@ const Login = () => {
       style={styles.container}
       behavior="padding"
     >
-      <View style={styles.header}><Text>WUZZUF</Text></View>
-      <View style={styles.welcome}><Text>Welcome Back</Text></View>
+      <View style={styles.header}><Text style={styles.header}>WUZZUF</Text></View>
+      <View style={styles.welcome}><Text style={styles.welcome}>Welcome Back</Text></View>
       <View
         style={{
           borderBottomColor: "rgb(209, 201, 201)",
