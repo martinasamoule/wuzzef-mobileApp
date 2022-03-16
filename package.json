@@ -8,8 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.2",
     "@react-navigation/material-top-tabs": "^6.1.1",
+    "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
@@ -21,6 +21,7 @@
     "react-native-pager-view": "^5.4.15",
     "react-native-safe-area-context": "^4.2.1",
     "react-native-screens": "^3.13.1",
+    "react-native-share": "^7.3.7",
     "react-native-svg": "12.1.1",
     "react-native-tab-view": "^3.1.1",
     "react-native-web": "0.17.1",
