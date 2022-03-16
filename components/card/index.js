@@ -82,35 +82,35 @@ export default function Card({ item, navigation }) {
           <HStack space={2} justifyContent="space-between">
             <Box>
               <Text fontSize="md" onPress={getSinglePage} color="blue.700">
-                {item.data.jobTitle}
+                {item?.data.jobTitle}
               </Text>
 
-              <Text fontSize="md">{item.data.jobType}</Text>
+              <Text fontSize="md">{item?.data.jobType}</Text>
               <HStack space={2}>
                 <Text fontSize="md" fontWeights="black">
-                  {item.data.companyName} -
+                  {item?.data.companyName} -
                 </Text>
                 <Text fontSize="md" color="light.500">
-                  {item.data.companyCountry}
+                  {item?.data.companyCountry}
                 </Text>
               </HStack>
             </Box>
             <Center>
               <Image
                 source={{
-                  uri: item.data.logo,
+                  uri: item?.data.logo,
                 }}
-                alt={item.data.companyName}
+                alt={item?.data.companyName}
                 size="sm"
               />
             </Center>
           </HStack>
           <VStack color="light-400">
             <Text>
-              {item.data.careerLevel} , {item.data.jobCategories}
+              {item?.data.careerLevel} , {item?.data.jobCategories}
             </Text>
             <Text>
-              {item.data.companyIndustry} , {item.data.experience}
+              {item?.data.companyIndustry} , {item?.data.experience}
             </Text>
           </VStack>
           <HStack

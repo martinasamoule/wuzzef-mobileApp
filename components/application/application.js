@@ -25,7 +25,7 @@ export default function  Application (props)
   const jobdata = db.collection('users').doc(localStorage.getItem("uid")).collection('applicion');
   const querySnapshot = await jobdata.get();
   setapplicationLength(querySnapshot.docs.length);
-  console.log(querySnapshot.docs[0].data())
+  // console.log(querySnapshot.docs[0].data())
   if(querySnapshot.docs.length>0)
   {
     setIsLoading(false);

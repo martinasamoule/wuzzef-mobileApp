@@ -23,8 +23,8 @@ const Login = () => {
       setError("");
       await auth.signInWithEmailAndPassword(email, password).then((auth) => {
         localStorage.setItem("uid", auth.user.uid);
-        setEmail(" ");
-        setPassword(" ");
+        setEmail("");
+        setPassword("");
         navigation.navigate("MainLayout");
         
       });
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans,sans-serif',
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
+    fontWeight:"bold"
   },
   welcome: {
     alignItems: "center",

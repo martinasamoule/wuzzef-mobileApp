@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     // fontWeight: "bolder",
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
+    fontWeight:"bold"
   },
   welcome: {
     alignItems: "center",

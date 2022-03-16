@@ -91,7 +91,7 @@ export default function Application() {
               birthDate:
             </Text>
             <Text style={{ display: "inline" }}>
-              {`${userDetails.birthDate?.day} ${userDetails.birthDate?.month} ${userDetails.birthDate?.year}`}
+              {userDetails.birthDate?`${userDetails.birthDate?.day} ${userDetails.birthDate?.month} ${userDetails.birthDate?.year}`:""}
             </Text>
           </View>
 
