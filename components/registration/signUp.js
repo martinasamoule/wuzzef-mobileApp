@@ -1,7 +1,7 @@
 
 import { useNavigation } from '@react-navigation/native'
-import React, {  useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View,Button } from 'react-native'
+import React, { useState } from 'react'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View, Button } from 'react-native'
 import { auth } from '../../firebase'
 import { db } from "../../firebase";
 
@@ -12,66 +12,62 @@ const SignUp = () => {
   const [lastName, setLastName] = useState('')
   const [error, setError] = useState('')
 
-  
+
 
   const navigation = useNavigation()
 
- 
   async function handleSumbite(e) {
     e.preventDefault()
     try {
-        setError("")
-        await auth
+      setError("")
+      await auth
         .createUserWithEmailAndPassword(email, password)
-       .then((auth) => {
-            if (auth) {
-                db.collection("users")
-                    .doc(auth.user.uid)
-                    .set({
-                        email: email,
-                        firstName: firstName,
-                        lastName: lastName
-                    }).then(() => {
-                        
-                        navigation.navigate("login")
-                    })
-            }
+        .then((auth) => {
+          if (auth) {
+            db.collection("users")
+              .doc(auth.user.uid)
+              .set({
+                email: email,
+                firstName: firstName,
+                lastName: lastName
+              }).then(() => {
+
+                navigation.navigate("login")
+              })
+          }
         })
     }
     catch (error) {
-     
-        switch (error.code) {
-            case "auth/wrong-password":
-                setError(`Password is Invalid`)
-                break;
 
-            case "auth/invalid-email":
-                setError(`Email is Invalid`)
-                break;
-            case "auth/email-already-exists":
-                setError(`Email already Exists`)
-                break;
-            case "auth/weak-password":
-                setError(`Password must be more than 6 characters`)
-                break;
+      switch (error.code) {
+        case "auth/wrong-password":
+          setError(`Password is Invalid`)
+          break;
 
-            default:
-                setError(`Please Valid Your Data`)
+        case "auth/invalid-email":
+          setError(`Email is Invalid`)
+          break;
+        case "auth/email-already-exists":
+          setError(`Email already Exists`)
+          break;
+        case "auth/weak-password":
+          setError(`Password must be more than 6 characters`)
+          break;
 
-        }
+        default:
+          setError(`Please Valid Your Data`)
+
+      }
     }
-}
-
-
-
+  }
 
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior="padding"
     >
-      <View style={styles.header}>WUZZUF</View>
-      <View style={styles.welcome}>Sign Up and Start Appling For Jobs</View>
+      <View style={styles.header}><Text>WUZZUF</Text></View>
+      <View style={styles.welcome}><Text>Sign Up and Start Appling For Jobs</Text></View>
       <View
         style={{
           borderBottomColor: 'rgb(209, 201, 201)',
@@ -81,28 +77,28 @@ const SignUp = () => {
       />
       <View style={styles.inputContainer}>
         <Text style={{ fontWeight: 'bold', color: 'red', fontSize: 15, marginBottom: 3, marginTop: 5 }}>{error}</Text>
-        <Text style={{ fontWeight: 'bold',color:'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3 }}>First Name</Text>
+        <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3 }}>First Name</Text>
         <TextInput
           placeholder="First Name"
           value={firstName}
           onChangeText={text => setFirstName(text)}
           style={styles.input}
         />
-          <Text style={{ fontWeight: 'bold',color:'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Last Name</Text>
+        <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Last Name</Text>
         <TextInput
           placeholder="Last Name"
           value={lastName}
           onChangeText={text => setLastName(text)}
           style={styles.input}
         />
-        <Text style={{ fontWeight: 'bold',color:'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3 , marginTop: 10}}>Email</Text>
+        <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Email</Text>
         <TextInput
-          placeholder="Email" 
+          placeholder="Email"
           value={email}
           onChangeText={text => setEmail(text)}
           style={styles.input}
         />
-        <Text style={{ fontWeight: 'bold',color:'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Password</Text>
+        <Text style={{ fontWeight: 'bold', color: 'rgb(39, 38, 38)', fontSize: 15, marginBottom: 3, marginTop: 10 }}>Password</Text>
         <TextInput
           placeholder="Password"
           value={password}
@@ -129,9 +125,9 @@ const SignUp = () => {
         marginBottom: 10,
         fontWeight: "bold",
         color: "black",
-      }}>Already on WUZZUF? <Text style={{ color: 'blue' }}
+      }}><Text>Already on WUZZUF?</Text> <Text style={{ color: 'blue' }}
         onPress={() => navigation.replace("login")}>
-          Sign in
+          <Text> Sign in</Text>
         </Text></View>
     </KeyboardAvoidingView>
 
@@ -200,4 +196,3 @@ const styles = StyleSheet.create({
 
 
 
- 

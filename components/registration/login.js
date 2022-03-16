@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
 
     fontSize: 40,
     fontFamily: 'Open Sans,sans-serif',
-    // fontWeight: "bolder",
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
 
