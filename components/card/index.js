@@ -150,20 +150,6 @@ export default function Card({ item, navigation }) {
             >
               Share
             </Button>
-            <Button
-              variant="ghost"
-              colorScheme="light.100"
-              leftIcon={
-                <Icon
-                  as={Ionicons}
-                  name="eye-off-outline"
-                  size="sm"
-                  color="muted.500"
-                />
-              }
-            >
-              Hide
-            </Button>
           </HStack>
         </VStack>
       </Box>
