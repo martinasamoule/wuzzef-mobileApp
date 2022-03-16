@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "wuzzuf",
-    "slug": "wuzzuf",
+    "name": "WUZZUF",
+    "slug": "WUZZUF",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,7 +26,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon1.png"
     }
   }
 }
