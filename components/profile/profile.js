@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { auth } from "../../firebase"
+import { Text, View, TouchableOpacity } from 'react-native'
+
 import {
   Box
 } from "native-base";
-export default function  Profile () 
- {
-    return <Box>
-        <Box alignSelf="center" bg="primary.500" _text={{
-        fontSize: "md",
-        fontWeight: "medium",
-        color: "warmGray.50",
-        letterSpacing: "lg"
-      }}>
-          profile
-        </Box>
-      </Box>;
-  };
+
+export default function Profile() {
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user)=>{
+      console.log(user.uid);
+    })
+  })
+
+
+  return(
+    <View>
+      <Text>text</Text>
+    </View>
+  )
+};

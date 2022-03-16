@@ -47,8 +47,8 @@ const Login = () => {
       style={styles.container}
       behavior="padding"
     >
-      <View style={styles.header}>WUZZUF</View>
-      <View style={styles.welcome}>Welcome Back</View>
+      <View style={styles.header}><Text>WUZZUF</Text></View>
+      <View style={styles.welcome}><Text>Welcome Back</Text></View>
       <View
         style={{
           borderBottomColor: 'rgb(209, 201, 201)',
@@ -92,7 +92,7 @@ const Login = () => {
         marginBottom: 10,
         fontWeight: "bold",
         color: "black",
-      }}>New To WUZZUF? <Text style={{ color: 'blue' }}
+      }}><Text>New To WUZZUF? </Text><Text style={{ color: 'blue' }}
         onPress={() => navigation.replace("sign-up")}>
           Join now
         </Text></View>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 
     fontSize: 40,
     fontFamily: 'Open Sans,sans-serif',
-    fontWeight: "bolder",
+    // fontWeight: "bolder",
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
 

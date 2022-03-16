@@ -12,15 +12,15 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
 
-      <NativeBaseProvider>
+    <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="login" options={{ headerShown: false }} component={Login} />
           <Stack.Screen name="sign-up" options={{ headerShown: false }} component={SignUp} />
-          <Stack.Screen name="MainLayout" component={MainLayout} options={{ headerShown: false }}/>
+          <Stack.Screen name="MainLayout" component={MainLayout} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
-      </NativeBaseProvider>
+    </NativeBaseProvider>
   );
 }
 
