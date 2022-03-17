@@ -23,7 +23,10 @@ const Login = () => {
       setError("");
       await auth.signInWithEmailAndPassword(email, password).then((auth) => {
         localStorage.setItem("uid", auth.user.uid);
+        setEmail("");
+        setPassword("");
         navigation.navigate("MainLayout");
+        
       });
     } catch (error) {
       switch (error.code) {
@@ -44,8 +47,8 @@ const Login = () => {
       style={styles.container}
       behavior="padding"
     >
-      <View style={styles.header}><Text>WUZZUF</Text></View>
-      <View style={styles.welcome}><Text>Welcome Back</Text></View>
+      <View style={styles.header}><Text style={styles.header}>WUZZUF</Text></View>
+      <View style={styles.welcome}><Text style={styles.welcome}>Welcome Back</Text></View>
       <View
         style={{
           borderBottomColor: "rgb(209, 201, 201)",
@@ -133,6 +136,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans,sans-serif',
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
+    fontWeight:"bold"
   },
   welcome: {
     alignItems: "center",

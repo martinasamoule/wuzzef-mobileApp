@@ -66,7 +66,7 @@ const SignUp = () => {
       style={styles.container}
       behavior="padding"
     >
-      <View style={styles.header}><Text>WUZZUF</Text></View>
+      <View ><Text style={styles.header}>WUZZUF</Text></View>
       <View style={styles.welcome}><Text>Sign Up and Start Appling For Jobs</Text></View>
       <View
         style={{
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     // fontWeight: "bolder",
     marginBottom: 10,
     color: "rgb(9, 9, 209)",
+    fontWeight:"bold"
   },
   welcome: {
     alignItems: "center",

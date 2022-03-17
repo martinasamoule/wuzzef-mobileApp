@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigation } from '@react-navigation/native'
 import {
   Box,
   Spacer,
@@ -9,14 +10,37 @@ import {
   Flex,
   FlatList,
   Avatar,
+<<<<<<< HEAD
   Divider
 } from "native-base";
 import { Card, Button, Icon } from "react-native-elements";
 import { auth, db } from "../../firebase";
+=======
+  Divider,
+  Button
+} from "native-base";
+import { View, ScrollView, StyleSheet, Image } from 'react-native';
+import { Card, Icon } from 'react-native-elements';
+import { auth, db } from "../../firebase"
+>>>>>>> 3e0af1152a7f7e1b2faca46d3dcdfc2433df88f8
 
 export default function Application() {
   const [currentUser, setCurrentUser] = useState("");
   const [userDetails, setUserDetails] = useState({});
+  const navigation = useNavigation()
+  async function handleSignOut() {
+    try {
+      await auth
+      .signOut().then(() => {
+        localStorage.removeItem("uid");
+        navigation.navigate("login")
+    
+      });
+    } catch {
+      console.log("faile to logout");
+    }
+  }
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -98,7 +122,7 @@ export default function Application() {
           >
             <Text style={styles.boldText}>birthDate:</Text>
             <Text style={{ display: "inline" }}>
-              {`${userDetails.birthDate?.day} ${userDetails.birthDate?.month} ${userDetails.birthDate?.year}`}
+              {userDetails.birthDate?`${userDetails.birthDate?.day} ${userDetails.birthDate?.month} ${userDetails.birthDate?.year}`:""}
             </Text>
           </View>
 
@@ -126,6 +150,7 @@ export default function Application() {
             </Text>
           </View>
 
+<<<<<<< HEAD
           <View
             style={{
               display: "flex",
@@ -134,10 +159,16 @@ export default function Application() {
             }}
           >
             <Text style={styles.boldText}>Military Status:</Text>
+=======
+          {userDetails?.gender!="female"?<View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
+            <Text style={styles.boldText}>
+              Military Status:
+            </Text>
+>>>>>>> 3e0af1152a7f7e1b2faca46d3dcdfc2433df88f8
             <Text style={{ display: "inline" }}>
               {userDetails?.militarySatus}
             </Text>
-          </View>
+          </View>:""}
 
           <View
             style={{
@@ -176,6 +207,7 @@ export default function Application() {
             <Text style={styles.boldText}>Mobile</Text>
             <Text style={{ display: "inline" }}>{userDetails?.mobile}</Text>
           </View>
+<<<<<<< HEAD
           <View
             style={{
               display: "flex",
@@ -186,7 +218,28 @@ export default function Application() {
             <Text style={styles.boldText}>Alternative Mobile</Text>
             <Text style={{ display: "inline" }}>{userDetails?.altMobile}</Text>
           </View>
+=======
+          {userDetails?.altMobile?<View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
+            <Text style={styles.boldText}>
+              Alternative Mobile
+            </Text>
+            <Text style={{ display: "inline" }}>
+              {userDetails?.altMobile}
+            </Text>
+          </View>:""}
+>>>>>>> 3e0af1152a7f7e1b2faca46d3dcdfc2433df88f8
         </Card>
+        <View
+        style={{
+          marginBottom: 15,
+          marginTop: 20,
+          alignItems:"center"
+        }}
+      >
+        <Button onPress={handleSignOut}  color="rgb(7, 7, 143)" w="20%">
+          Logout
+        </Button>
+      </View>
       </ScrollView>
     </>
   );
