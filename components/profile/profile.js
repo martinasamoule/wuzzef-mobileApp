@@ -113,14 +113,14 @@ export default function Application() {
             </Text>
           </View>
 
-          <View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
+          {userDetails?.gender!="female"?<View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
             <Text style={styles.boldText}>
               Military Status:
             </Text>
             <Text style={{ display: "inline" }}>
               {userDetails?.militarySatus}
             </Text>
-          </View>
+          </View>:""}
 
           <View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
             <Text style={styles.boldText}>
@@ -152,14 +152,14 @@ export default function Application() {
               {userDetails?.mobile}
             </Text>
           </View>
-          <View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
+          {userDetails?.altMobile?<View style={{ display: "flex", flexDirection: "row", paddingVertical: "7px" }}>
             <Text style={styles.boldText}>
               Alternative Mobile
             </Text>
             <Text style={{ display: "inline" }}>
               {userDetails?.altMobile}
             </Text>
-          </View>
+          </View>:""}
         </Card>
         <View
         style={{

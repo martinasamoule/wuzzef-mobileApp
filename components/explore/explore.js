@@ -38,8 +38,8 @@ export default function Explore(props) {
         Explore New Career Opportunities
       </Text>
       <VStack w="100%" space={5} alignItems="center">
-        <Input placeholder="Search for jobs " width="50%" borderRadius="7" py="3" px="1" fontSize="14"
-         InputRightElement={<SearchIcon size="4" px="5" /> } onChangeText={search}/>
+        <Input placeholder="Search for jobs" width="70%" borderRadius="7" py="3" px="1" fontSize="12"
+         InputRightElement={<SearchIcon size="4" px="2"/> } onChangeText={search}/>
       </VStack>
       <FlatList
         data={jobItems.filter((item)=>{
