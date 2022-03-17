@@ -8,12 +8,12 @@ import {
   Button,
   HStack,
   Icon,
-  Badge,
+  Badge
 } from "native-base";
 import {
   Ionicons,
   FontAwesome,
-  MaterialCommunityIcons,
+  MaterialCommunityIcons
 } from "@expo/vector-icons";
 
 import savejob from "../../services/savejob";
@@ -24,13 +24,11 @@ export default function Card({ item, navigation }) {
     try {
       const result = await Share.share({
         message:
-          "React Native | A framework for building native apps using React",
+          "React Native | A framework for building native apps using React"
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
-          // shared with activity type of result.activityType
         } else {
-          // shared
         }
       } else if (result.action === Share.dismissedAction) {
         // dismissed
@@ -45,11 +43,8 @@ export default function Card({ item, navigation }) {
       .addJobtoSavedPage(item.data)
       .then(() => {
         setSave(true);
-        console.log("", item);
       })
       .catch((err) => {
-        console.log("", item.data);
-
         console.log(err);
       });
   };
@@ -60,8 +55,8 @@ export default function Card({ item, navigation }) {
       name: "JobDtails",
       params: {
         jobId: item.id,
-        companyId: item.companyId,
-      },
+        companyId: item.companyId
+      }
     });
   };
   return (
@@ -74,7 +69,7 @@ export default function Card({ item, navigation }) {
         fontSize: "md",
         fontWeight: "medium",
         color: "warmGray.50",
-        letterSpacing: "lg",
+        letterSpacing: "lg"
       }}
     >
       <Box bg="white" style={{ padding: 10 }}>
@@ -98,7 +93,7 @@ export default function Card({ item, navigation }) {
             <Center>
               <Image
                 source={{
-                  uri: item?.data.logo,
+                  uri: item?.data.logo
                 }}
                 alt={item?.data.companyName}
                 size="sm"
