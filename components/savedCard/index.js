@@ -9,12 +9,12 @@ import {
   Button,
   HStack,
   Icon,
-  Badge,
+  Badge
 } from "native-base";
 import {
   Ionicons,
   FontAwesome,
-  MaterialCommunityIcons,
+  MaterialCommunityIcons
 } from "@expo/vector-icons";
 import savejob from "../../services/savejob";
 export default function Card({ item, navigation }) {
@@ -24,6 +24,10 @@ export default function Card({ item, navigation }) {
     savejob
       .deletSavedJob(item.id)
       .then(() => {
+        let list = item.filter((item) => {
+          console.log("item", item);
+          return item.id !== id;
+        });
         console.log("dltet");
       })
       .catch((err) => {
@@ -37,8 +41,8 @@ export default function Card({ item, navigation }) {
       name: "JobDtails",
       params: {
         jobId: item.data.id,
-        companyId: item.companyId,
-      },
+        companyId: item.companyId
+      }
     });
   };
   return (
@@ -51,7 +55,7 @@ export default function Card({ item, navigation }) {
         fontSize: "md",
         fontWeight: "medium",
         color: "warmGray.50",
-        letterSpacing: "lg",
+        letterSpacing: "lg"
       }}
     >
       <Box bg="white" style={{ padding: 10 }}>
@@ -81,7 +85,7 @@ export default function Card({ item, navigation }) {
             <Center>
               <Image
                 source={{
-                  uri: item.data.logo,
+                  uri: item.data.logo
                 }}
                 alt={item.data.companyName}
                 size="sm"
